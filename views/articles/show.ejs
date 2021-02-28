@@ -1,0 +1,30 @@
+<%- include('../layouts/head') %>
+
+<body>
+    <section>
+        <div class="container">
+            <div>
+                <h2 class="text-center my-3">Blog with MEN</h2>
+            </div>
+            <div class="text-center">Create new post</div>
+            <div class="my-3 mx-auto">
+
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="title" class="form-label"><%= article.title %></label>
+                            </div>
+                            <div class="form-group">
+                                <label for="description" class="form-label"><%= article.description %></label>
+                            </div>
+                            <a class="btn btn-secondary" href="/articles">Back</a>
+                            <a class="btn btn-primary" href="/articles/edit/<%= article.id %> ">Edit</a>
+                        </div>
+                    </div>
+
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>

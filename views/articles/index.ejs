@@ -1,0 +1,44 @@
+<%- include('../layouts/head') %>
+
+<body>
+    <section>
+        <div class="container">
+            <div>
+                    <h2 class="text-center my-3">Blog with MEN</h2>
+                
+                <center><a href="articles/create" class="btn btn-success">New Article</a></center>
+                
+            </div>
+            <div class="w-50 my-3 mx-auto">
+            <% articles.forEach( article => { %> 
+
+                <div class="card mb-3" id="<%= article.id %> ">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= article.title %></h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= article.subtitle %></h6>
+                        <p class="card-text"><%= article.description %></p>
+                        <div class="row">
+                            <div class="col">
+                                <a href="articles/<%= article.id %> " class="btn btn-primary">Read more</a>
+                                <a href="articles/edit/<%= article.id %>" class="btn btn-info">Edit</a>
+                                <form action="articles/delete/<%= article.id %>?_method=DELETE" method="POST" class="d-inline">
+                                    <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+
+                            </div>
+
+                            <div class="col d-flex justify-content-end align-items-end">
+    
+                                <span class="text-muted m-0 align-bottom"><%= article.createdAt.toLocaleDateString() %> </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            <% }) %>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
